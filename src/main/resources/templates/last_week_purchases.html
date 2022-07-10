@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+    <title>Stats</title>
+</head>
+
+<style>
+    div.container {
+        margin-top: 20px;
+    }
+
+    h3 {
+        margin-top: 15px;
+        text-align: center
+    }
+</style>
+
+<body>
+<h3>Cписок покупок за последнюю неделю</h3>
+<div class="container border border-3 border-secondary rounded table-container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Имя</th>
+            <th scope="col">Фамилия</th>
+            <th scope="col">Возраст</th>
+            <th scope="col">Количество</th>
+            <th scope="col">Объем</th>
+            <th scope="col">Товар</th>
+            <th scope="col">Дата</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="purchase: ${purchases}">
+            <td th:text="${purchase.name}">#</td>
+            <td th:text="${purchase.lastname}">#</td>
+            <td th:text="${purchase.age}">#</td>
+            <td th:text="${purchase.count}">#</td>
+            <td th:text="${purchase.amount}">#</td>
+            <td th:text="${purchase.purchaseItem}">#</td>
+            <td th:text="${purchase.purchaseDate}">#</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

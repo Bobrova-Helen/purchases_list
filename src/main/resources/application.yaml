@@ -1,0 +1,28 @@
+application-description: Purchases API
+application-version: 1.0.0
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/purchases_db
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    generate-ddl: false
+    show-sql: true
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+  jackson:
+    serialization:
+      wrap-root-value: true
+
+  flyway:
+    baseline-on-migrate: false
+    locations: 'classpath:db/migration/{vendor}'
